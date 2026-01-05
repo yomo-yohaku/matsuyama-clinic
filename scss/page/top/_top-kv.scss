@@ -1,0 +1,25 @@
+@use "../../global" as g;
+
+/*!
+page > top > top-kv
+------------------------------
+*/
+.top-kv {
+  position: relative;
+}
+
+.top-kv__image {
+}
+
+.top-kv__catch {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: 666/293;
+  margin: auto;
+  @include g.sp {
+    width: 91%;
+  }
+  @include g.pc {
+    width: 45%;
+  }
+}

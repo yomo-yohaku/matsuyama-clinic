@@ -1,0 +1,189 @@
+@use "../../global" as g;
+
+/*!
+page > top > top-interview
+------------------------------
+*/
+.top-interview {
+  &::before {
+    display: block;
+    width: 100%;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    @include g.sp {
+      aspect-ratio: 760/640;
+      margin-bottom: -40px;
+      background-image: url("../../../img/top/bg_interview_sp.jpg");
+    }
+    @include g.pc {
+      aspect-ratio: 1440/472;
+      margin-bottom: -80px;
+      background-image: url("../../../img/top/bg_interview_pc.jpg");
+    }
+  }
+}
+
+.top-interview__inner {
+  position: relative;
+  z-index: var(--z-index-default);
+  width: min(90%, var(--width-content));
+  margin-inline: auto;
+  overflow: hidden;
+  background-color: var(--color-bg-base);
+  @include g.sp {
+    padding-block: 80px;
+  }
+  @include g.pc {
+    padding-block: 120px;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    aspect-ratio: 1440/516;
+    content: "";
+    background-image: url("../../../img/top/image_bgtext.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+    @include g.sp {
+      width: 150%;
+    }
+    @include g.pc {
+      width: 120%;
+    }
+  }
+}
+
+.top-interview__heading {
+  display: grid;
+  place-items: center;
+}
+
+.top-interview__list {
+  position: relative;
+  display: grid;
+  row-gap: 44px;
+  margin-top: 40px;
+  overflow: hidden;
+  @include g.pc {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 44px;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 185%;
+    aspect-ratio: 1440/516;
+    content: "";
+    background-image: url("../../../img/top/image_bgtext.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    translate: -50% -50%;
+  }
+}
+
+.top-interview__item {
+  width: 100%;
+
+  &:nth-child(even) {
+    @include g.pc {
+      margin-top: 56px;
+    }
+  }
+}
+
+.top-interview__image-wrapper {
+  position: relative;
+}
+
+.top-interview__image {
+  width: 100%;
+  height: auto;
+}
+
+.top-interview__catch {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  @include g.sp {
+    bottom: 16px;
+    left: 16px;
+  }
+  @include g.pc {
+    bottom: 24px;
+    left: 24px;
+  }
+
+  & span {
+    display: block;
+    width: fit-content;
+    padding: 3px 8px;
+    background-color: var(--color-font-white);
+
+    &:not(:first-child) {
+      @include g.sp {
+        margin-top: 4px;
+      }
+      @include g.pc {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.top-interview__button-wrapper {
+  display: grid;
+  place-items: center;
+  margin-top: 24px;
+}
+
+.top-interview__button-nurse.c-button {
+  background: var(--color-bg-light-blue);
+  border: none;
+  transition-duration: 0.3s;
+  transition-property: opacity;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-font-base);
+      opacity: 0.6;
+
+      &.c-button--arrow {
+        &::after {
+          background-color: var(--color-font-base);
+        }
+      }
+    }
+  }
+}
+
+.top-interview__button-clerk.c-button {
+  background: var(--color-bg-green);
+  border: none;
+  transition-duration: 0.3s;
+  transition-property: opacity;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-font-base);
+      opacity: 0.6;
+
+      &.c-button--arrow {
+        &::after {
+          background-color: var(--color-font-base);
+        }
+      }
+    }
+  }
+}

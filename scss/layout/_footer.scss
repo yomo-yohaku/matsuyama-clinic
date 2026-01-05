@@ -1,0 +1,94 @@
+@use "../global" as g;
+
+/*!
+layout > footer
+------------------------------
+*/
+.footer {
+  padding-block: 56px;
+}
+
+.footer__inner {
+  width: min(90%, var(--width-content));
+  margin-inline: auto;
+  @include g.pc {
+    display: grid;
+    grid-template-columns: min(20%, 370px) 1fr;
+  }
+}
+
+.footer__logo {
+  @include g.sp {
+    width: 46%;
+    margin-inline: auto;
+  }
+  @include g.pc {
+    width: 100%;
+    aspect-ratio: 300 / 48;
+    margin-top: 14px;
+  }
+}
+
+.footer__link-wrapper {
+  justify-self: end;
+}
+
+.footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  column-gap: 24px;
+  align-items: center;
+  justify-content: center;
+  @include g.sp {
+    margin-top: 40px;
+  }
+}
+
+.footer__item {
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer__button {
+  @include g.sp {
+    margin-top: 16px;
+  }
+
+  & a {
+    background: var(--color-bg-light-blue);
+    border: none;
+  }
+}
+
+.footer__info-list {
+  display: flex;
+  column-gap: 30px;
+  margin-top: 56px;
+  @include g.sp {
+    justify-content: center;
+  }
+  @include g.pc {
+    justify-content: end;
+  }
+}
+
+.footer__info-item {
+  color: inherit;
+  text-decoration: none;
+  @include g.sp {
+    font-size: 12px;
+  }
+}
+
+.footer__copyright {
+  display: block;
+  margin-top: 22px;
+  @include g.sp {
+    font-size: 12px;
+    text-align: center;
+  }
+  @include g.pc {
+    text-align: right;
+  }
+}

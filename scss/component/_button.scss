@@ -1,0 +1,57 @@
+@use "../global" as g;
+
+/*!
+component > button
+------------------------------
+*/
+.c-button {
+  display: inline-block;
+  column-gap: 16px;
+  font-weight: bold;
+  color: var(--color-font-base);
+  background-color: var(--color-font-white);
+  border: 1px solid var(--color-font-base);
+  border-radius: calc(1px / 0);
+  transition-duration: 0.3s;
+  transition-property: color, background-color;
+  @include g.sp {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+  @include g.pc {
+    padding: 18px 32px;
+    font-size: 16px;
+  }
+
+  &.c-button--arrow {
+    display: inline-grid;
+    grid-template-columns: auto 12px;
+    align-items: center;
+    justify-content: space-between;
+    &::after {
+      aspect-ratio: 1;
+      content: "";
+      background-color: var(--color-font-base);
+      mask-image: url("../img/common/icon_arrow.svg");
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      transition-duration: 0.3s;
+      transition-property: background-color, transform;
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--color-font-white);
+      background-color: var(--color-bg-black);
+
+      &.c-button--arrow {
+        &::after {
+          background-color: var(--color-font-white);
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@use "../../global" as g;
+
+/*!
+page > top > top-greeting
+------------------------------
+*/
+.top-greeting {
+  position: relative;
+  z-index: var(--z-index-default);
+  overflow: hidden;
+  @include g.sp {
+    padding-block: 48px 120px;
+  }
+  @include g.pc {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    column-gap: min(8%, 120px);
+    padding-block: 96px 142px;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    aspect-ratio: 1440/516;
+    content: "";
+    background-image: url("../../../img/top/image_bgtext.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+    @include g.sp {
+      width: 150%;
+    }
+    @include g.pc {
+      left: 30.277%;
+      width: 80%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    aspect-ratio: 1;
+    content: "";
+    background-image: url("../../../img/top/image_greeting_02.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    @include g.sp {
+      right: -19%;
+      bottom: 71px;
+      width: 53%;
+    }
+    @include g.pc {
+      right: 84px;
+      bottom: 29px;
+      width: 300px;
+    }
+  }
+}
+
+.top-greeting__image {
+  position: relative;
+  z-index: var(--z-index-default);
+  height: fit-content;
+  margin-bottom: 5%;
+  @include g.sp {
+    width: 70%;
+  }
+
+  &::after {
+    position: absolute;
+    right: -5%;
+    bottom: -5%;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 32%;
+    content: "";
+    background: var(--color-bg-blue-green);
+  }
+}
+
+.top-greeting__heading {
+  margin-top: 48px;
+}
+
+.top-greeting__catch {
+  position: relative;
+  z-index: var(--z-index-default);
+  font-weight: bold;
+  @include g.sp {
+    margin-top: 32px;
+    font-size: 32px;
+  }
+  @include g.pc {
+    margin-top: 56px;
+    font-size: 40px;
+  }
+
+  & span {
+    @include g.sp {
+      display: block;
+    }
+    @include g.pc {
+      &:nth-child(3) {
+        display: block;
+      }
+    }
+  }
+}
+
+.top-greeting__text-wrapper {
+  display: grid;
+  row-gap: 24px;
+  margin-top: 32px;
+}
+
+.top-greeting__text {
+  line-height: 2.2;
+}
+
+.top-greeting__button-wrapper {
+  margin-top: 32px;
+}
+
+.top-greeting__button {
+  display: inline-block;
+}
